@@ -72,6 +72,22 @@ app.get('/recommendations', async (req, res) => {
     })
 });
 
+app.get('/playlists/:id', async (req, res) => {
+    if (!req.headers.authorization) {
+        return res.status(401).send({ message: "Please insert token!" })    
+    }
+
+    await axios.get(`https://api.spotify.com/v1/playlists/${req.params.id}`, {
+        headers: {
+            'Authorization': req.headers.authorization
+        }
+    }).then(response => {
+        res.send(response.data)
+    }).catch(error => {
+        res.send(error)
+    })
+});
+
 const port = 8080;
 const host = "localhost";
 

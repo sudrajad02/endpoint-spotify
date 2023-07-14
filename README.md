@@ -16,3 +16,5 @@ $ pnpm start
 or
 $ npm start
 ```
+
+All documentation endpoints can be accessed via the following link: [postman](https://documenter.getpostman.com/view/7838991/2s946eBDpZ)
